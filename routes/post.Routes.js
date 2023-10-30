@@ -21,7 +21,7 @@ postRouter.post("/add", async (req, res) => {
     try {
         const post = new PostModel(payload)
         await post.save()
-        res.status(200).send({ "msg": "A new post has been added" })
+        res.status(200).send({ "msg": "A new doctor has been added" })
     } catch (err) {
         res.status(400).send({ "Error": err })
     }
@@ -49,12 +49,12 @@ postRouter.patch("/update/:id", async (req, res) => {
         const post = await PostModel.findOne({ _id: id })
         if (post.name == req.body.name) {
             await PostModel.findByIdAndUpdate(id, payload)
-            res.status(200).send({ "msg": "post updated" })
+            res.status(200).send({ "msg": "data updated" })
         } else {
             res.status(400).send({ "msg": "You are not authorize" })
         }
     } catch (err) {
-        res.status(400).send({ "msg": "post not found" })
+        res.status(400).send({ "msg": "doctor not found" })
     }
 })
 
@@ -67,12 +67,12 @@ postRouter.delete("/delete/:id", async (req, res) => {
         const post = await PostModel.findOne({ _id: id })
         if (post.name == req.body.name) {
             await PostModel.findByIdAndDelete(id)
-            res.status(200).send({ "msg": "post has been successfully deleted" })
+            res.status(200).send({ "msg": "doctor has been successfully deleted" })
         } else {
             res.status(400).send({ "msg": "You are not authorize" })
         }
     } catch (err) {
-        res.status(400).send({ "msg": "post not found" })
+        res.status(400).send({ "msg": "doctor not found" })
     }
 })
 
