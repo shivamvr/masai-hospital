@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 
 const postSchema = mongoose.Schema({
-    name: {type: String},
+    username: {type: String},
     image: {type: String},
     specialization: {type: String},
     experience: {type: Number},
