@@ -15,7 +15,7 @@ app.get('/',(req,res)=>{
 
 
 app.use('/users',userRouter)
-app.use('/posts',postRouter)
+app.use('/doctors',postRouter)
 
 app.listen(8080, async()=>{
      try{
